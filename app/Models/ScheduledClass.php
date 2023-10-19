@@ -42,4 +42,9 @@ class ScheduledClass extends Model
     {
         return $query->where('date_time', '>', now());
     }
+
+    public function scopePast(Builder $query)
+    {
+        return $query->where('date_time', '<', now());
+    }
 }
