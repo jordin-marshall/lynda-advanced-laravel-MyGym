@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
                 ScheduledClass::factory()
                     ->count(2)
                     ->sequence(fn (Sequence $sequence) => [
-                        'date_time' => Carbon::now()->addHours(24+ (++$sequence->index))->minutes(0)->seconds(0)
+                        'date_time' => Carbon::now()->addHours(24 + (++$sequence->index))->minutes(0)->seconds(0),
                     ])
             )
             ->count(10)->create(['role' => 'instructor']);
@@ -30,30 +30,30 @@ class UserSeeder extends Seeder
             ->has(
                 ScheduledClass::factory()
                     ->sequence(fn (Sequence $sequence) => [
-                        'date_time' => Carbon::now()->addHours(45+ (++$sequence->index))->minutes(0)->seconds(0)
-                        ])
+                        'date_time' => Carbon::now()->addHours(45 + (++$sequence->index))->minutes(0)->seconds(0),
+                    ])
                     ->count(2)
             )
             ->create([
-                'name'      => 'brandon',
-                'email'     => 'brandon@email.com',
-                'role'      => 'instructor',
+                'name' => 'brandon',
+                'email' => 'brandon@email.com',
+                'role' => 'instructor',
             ]);
 
         User::factory()->create([
-            'name'      => 'chanse',
-            'email'     => 'chanse@email.com',
+            'name' => 'chanse',
+            'email' => 'chanse@email.com',
         ]);
         User::factory()->create([
-            'name'      => 'jorden',
-            'email'     => 'jordin@email.com',
+            'name' => 'jorden',
+            'email' => 'jordin@email.com',
         ]);
 
         User::factory()->create([
-            'name'      => 'jordin marshall',
-            'email'     => 'jordin@admin.com',
-            'password'  => 'admin',
-            'role'      => 'admin',
+            'name' => 'jordin marshall',
+            'email' => 'jordin@admin.com',
+            'password' => 'admin',
+            'role' => 'admin',
         ]);
     }
 }

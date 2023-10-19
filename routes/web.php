@@ -29,19 +29,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/instructor/dashboard', function () {
         return view('instructor.dashboard');
     })->middleware(['role:instructor'])->name('instructor.dashboard');
-    //Route::get('/member/dashboard', function () { return view('member.dashboard');})->middleware(['role:member'])->name('member.dashboard');
+    //Route::get('/student/dashboard', function () { return view('student.dashboard');})->middleware(['role:student'])->name('student.dashboard');
 
     Route::resource('/instructor/schedule', ScheduledClassController::class)->only(['index', 'create', 'store', 'destroy'])->middleware(['role:instructor']);
 
-    /* Member routes */
-    Route::middleware(['role:member'])->group(function () {
-        Route::get('/member/dashboard', function () {
-            return view('member.dashboard');
-        })->name('member.dashboard');
-        Route::get('/member/book', [BookingController::class, 'create'])->name('booking.create');
-        Route::post('/member/bookings', [BookingController::class, 'store'])->name('booking.store');
-        Route::get('/member/bookings', [BookingController::class, 'index'])->name('booking.index');
-        Route::delete('/member/bookings/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
+    /* Student routes */
+    Route::middleware(['role:student'])->group(function () {
+        Route::get('/student/dashboard', function () {
+            return view('student.dashboard');
+        })->name('student.dashboard');
+        Route::get('/student/book', [BookingController::class, 'create'])->name('booking.create');
+        Route::post('/student/bookings', [BookingController::class, 'store'])->name('booking.store');
+        Route::get('/student/bookings', [BookingController::class, 'index'])->name('booking.index');
+        Route::delete('/student/bookings/{id}', [BookingController::class, 'destroy'])->name('booking.destroy');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

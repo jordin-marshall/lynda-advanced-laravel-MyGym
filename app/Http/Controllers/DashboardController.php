@@ -20,8 +20,8 @@ class DashboardController extends Controller
                 return redirect()->route('instructor.dashboard');
                 break;
 
-            case 'member':
-                return redirect()->route('member.dashboard');
+            case 'student':
+                return redirect()->route('student.dashboard');
                 break;
 
             default:
