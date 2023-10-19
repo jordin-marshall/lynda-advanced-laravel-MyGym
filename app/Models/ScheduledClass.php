@@ -26,14 +26,14 @@ class ScheduledClass extends Model
         return $this->belongsTo(User::class, 'instructor_id');
     }
 
-    public function members()
+    public function students()
     {
         return $this->belongsToMany(User::class, 'bookings');
     }
 
     public function scopeNotBooked(Builder $query)
     {
-        return $query->whereDoesntHave('members', function ($query) {
+        return $query->whereDoesntHave('students', function ($query) {
             $query->where('user_id', auth()->user()->id);
         });
     }
