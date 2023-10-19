@@ -11,7 +11,6 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        \Log::info('Role: ' . auth()->user()->role);
         switch (auth()->user()->role) {
             case 'admin':
                 return redirect()->route('admin.dashboard');
@@ -26,7 +25,7 @@ class DashboardController extends Controller
                 break;
 
             default:
-            return redirect()->route('login');
+                return redirect()->route('login');
                 break;
         }
     }
