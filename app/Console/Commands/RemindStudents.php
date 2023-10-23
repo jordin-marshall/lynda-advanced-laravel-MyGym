@@ -28,10 +28,10 @@ class RemindStudents extends Command
      */
     public function handle()
     {
-        $students = User::where('role','student')
-            ->whereDoesntHave('bookings', function($query) {
+        $students = User::where('role', 'student')
+            ->whereDoesntHave('bookings', function ($query) {
                 $query->where('date_time', '>', now());
-        })->select('name','email')->get();
+            })->select('name', 'email')->get();
 
         Notification::send($students, new RemindStudentsNotification);
     }

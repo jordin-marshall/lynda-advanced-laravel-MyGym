@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -35,11 +34,11 @@ class RemindStudentsNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->subject("Forgot to book a class")
-                    ->greeting('Hey ' . $notifiable->name)
-                    ->line('Looks like you dont have any upcoming classes booked.')
-                    ->action('Book', url('/member/book'))
-                    ->line('Stay Healthy!');
+            ->subject('Forgot to book a class')
+            ->greeting('Hey '.$notifiable->name)
+            ->line('Looks like you dont have any upcoming classes booked.')
+            ->action('Book', url('/member/book'))
+            ->line('Stay Healthy!');
     }
 
     /**
