@@ -7,8 +7,6 @@ use App\Jobs\NotifyClassCanceledJob;
 use App\Mail\ClassCanceledMail;
 use App\Notifications\ClassCanceledNotification;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
 
 class NotifyClassCanceled
@@ -31,7 +29,7 @@ class NotifyClassCanceled
         $className = $event->scheduledClass->classType->name;
         $classDateTime = $event->scheduledClass->date_time;
 
-        $details = compact('className','classDateTime');
+        $details = compact('className', 'classDateTime');
 
         // $students->each(function($student) use ($details) {
         //     Mail::to($student)->send(new ClassCanceledMail($details));

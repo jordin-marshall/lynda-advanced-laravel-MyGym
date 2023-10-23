@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use App\Notifications\ClassCanceledNotification;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -18,7 +17,7 @@ class NotifyClassCanceledJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(public $students, public Array $details)
+    public function __construct(public $students, public array $details)
     {
         //
     }
