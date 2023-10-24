@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <h2 class="mb-4">Upcoming Classes</h2>
+            <h2 class="mb-4 pl-3">Upcoming Classes</h2>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-10 text-gray-900 max-w-2xl divide-y">
                     @forelse ($bookings as $class)
@@ -47,7 +47,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <h2 class="mb-4">Previous Classes</h2>
+            <h2 class="mb-4 pl-3">Previous Classes</h2>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-10 text-gray-900 max-w-2xl divide-y">
                     @forelse ($prevBookings as $class)
