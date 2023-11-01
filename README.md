@@ -9,6 +9,19 @@
 -   Send mails, notifications, and then create jobs and process them in queues for time consuming tasks.
 -   Scheduled tasks that run without any manual intervention.
 
+## Starting The Project
+Make sure to have Docker installed, this laravel project utilizes [Sail](https://laravel.com/docs/10.x/sail)
+- Clone this project locally
+- `cd` into the project's directory
+- run `sail up -d`
+- generate an application key `sail artisan key:generate`
+- after setting up your local database, run the migrations `sail artisan migrate`
+- seed the database: `sail artisan db:seed`
+- update your `etc/hosts` file to include the entry `127.0.0.1  mygym.test` if you want to visit the project locally using `mygym.test`
+
+- Mailpit is used for testing emails and can be found at [port 8025](http://localhost:8025/)
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
